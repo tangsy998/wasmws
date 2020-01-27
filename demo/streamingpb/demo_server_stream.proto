@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+
+package main;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service SimpleService {
+  rpc ReapServerStream(google.protobuf.Empty) returns (stream ReplyMessage) {}
+}
+
+message ReplyMessage {
+    google.protobuf.Timestamp timestamp = 1;
+    string message = 2;
+}
